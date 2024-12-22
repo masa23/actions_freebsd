@@ -7,12 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: test freebsd 13.4
+      - name: test for freebsd 13.0
         uses: cross-platform-actions/action@v0.26.0
         with:
           memory: 512M
           operating_system: freebsd
           version: "13.4"
+          image_url: https://github.com/masa23/freebsd-builder/releases/download/v0.0.1/freebsd-13.4-x86-64.qcow2 # ここにカスタムイメージのURLを指定
           shell: sh
           run: |
-            uname -a
+            export CC=gcc
+            go test -v ./...
