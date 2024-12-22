@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: test freebsd 13.0
+      - name: test freebsd 13.4
         uses: cross-platform-actions/action@v0.26.0
         with:
           memory: 512M
           operating_system: freebsd
-          version: "13.0"
+          version: "13.4"
           shell: sh
           run: |
             uname -a
